@@ -1,0 +1,49 @@
+# Este nombre es el que verás como "Carpeta" en Docker Desktop
+name: tiendaLaravel
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tienda_app
+    restart: always
+    volumes:
+      - .:/var/www/html
+      - /var/www/html/node_modules
+    networks:
+      - tienda_network
+    # Al poner solo "80", Docker busca cualquier puerto libre en tu PC
+    ports:
+      - "8050:80" 
+    depends_on:
+      - db
+    # Automatización: instala y migra al encenderse
+    command: >
+      /bin/bash -c "
+      composer install &&
+      php artisan migrate --force &&
+      apachectl -D FOREGROUND"
+
+  db:
+    image: mariadb:10.5
+    container_name: mariadb_db_tienda_app
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root_password
+      MARIADB_DATABASE: tienda_db
+      MARIADB_USER: tienda_user
+      MARIADB_PASSWORD: tienda_password
+    ports:
+      - "3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - tienda_network
+
+volumes:
+  mariadb_data:
+
+networks:
+  tienda_network:
+    driver: bridge
