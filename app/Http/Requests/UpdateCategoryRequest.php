@@ -38,8 +38,8 @@ class UpdateCategoryRequest extends FormRequest
                 ['category' => $categoryId], // Cambiado a 'category' para coincidir con la URL
                 ['category' => 'required|integer|exists:categories,id'],
                 [
-                    'category.integer' => 'The category identifier must be an integer.',
-                    'category.exists' => 'The category with the provided ID does not exist in the database.',
+                    'category.integer' => 'El identificador de categoría debe ser un número entero.',
+                    'category.exists' => 'La categoría con el ID proporcionado no existe en la base de datos.',
                 ]
             );
 
@@ -52,10 +52,10 @@ class UpdateCategoryRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'The category name is required.',
-            'name.string' => 'The name must be a text string.',
-            'name.max' => 'The name cannot exceed 255 characters.',
-            'name.unique' => 'This category name is already in use.',
+            'name.required' => 'El nombre de la categoría es obligatorio.',
+            'name.string' => 'El nombre debe ser una cadena de texto.',
+            'name.max' => 'El nombre no debe exceder los 255 caracteres.',
+            'name.unique' => 'Este nombre de categoría ya está en uso.',
         ];
     }
 }

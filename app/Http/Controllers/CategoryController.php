@@ -23,9 +23,9 @@ class CategoryController extends Controller
         $data = array_merge($request->validated(), ['product_id' => $request->route('product')]);
         $category = Category::create($data);
         if ($category) {
-            return response()->json(['error'=>false,'message' => 'Category created successfully', 'category' => $category], 201);
+            return response()->json(['error'=>false,'message' => 'Categoría creada con éxito', 'category' => $category], 201);
         }
-        return response()->json(['error' => true,'message' => 'Failed to create category'], 500);
+        return response()->json(['error' => true,'message' => 'No se pudo crear la categoría.'], 500);
 
     }
 
@@ -38,9 +38,9 @@ class CategoryController extends Controller
         $category->update($request->validated());
 
         if ($category) {
-            return response()->json(['error'=>false,'message' => 'Category updated successfully', 'category' => $category], 200);
+            return response()->json(['error'=>false,'message' => 'Categoría actualizada correctamente', 'category' => $category], 200);
         }
-        return response()->json(['error' => true,'message' => 'Failed to update category'], 500);
+        return response()->json(['error' => true,'message' => 'No se pudo actualizar la categoría.'], 500);
     }
 
     /**
@@ -54,8 +54,8 @@ class CategoryController extends Controller
         $category->delete();
 
         if ($category) {
-            return response()->json(['error'=>false,'message' => 'Category deleted successfully', 'category' => $category], 200);
+            return response()->json(['error'=>false,'message' => 'Categoría eliminada con éxito', 'category' => $category], 200);
         }
-        return response()->json(['error' => true,'message' => 'Failed to delete category'], 500);
+        return response()->json(['error' => true,'message' => 'No se pudo eliminar la categoría.'], 500);
     }
 }

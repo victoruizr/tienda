@@ -21,9 +21,9 @@ class ProductImageController extends Controller
         $productImage = ProductImage::create($data);
 
         if ($productImage) {
-            return response()->json(['error' => false, 'message' => 'Product image created successfully', 'product_image' => $productImage], 201);
+            return response()->json(['error' => false, 'message' => 'Imagen del producto creada correctamente', 'product_image' => $productImage], 201);
         }
-        return response()->json(['error' => true, 'message' => 'Failed to create product image'], 500);
+        return response()->json(['error' => true, 'message' => 'No se pudo crear la imagen del producto.'], 500);
     }
 
 
@@ -34,10 +34,10 @@ class ProductImageController extends Controller
 
         $productImage = ProductImage::where('product_id', $productId)->where('id', $imageId)->first();
         if (!$productImage) {
-            return response()->json(['error' => true, 'message' => 'Product image not found'], 404);
+            return response()->json(['error' => true, 'message' => 'Imagen del producto no encontrada'], 404);
         }
         $productImage->delete();
 
-        return response()->json(['error' => false, 'message' => 'Product image deleted successfully'], 200);
+        return response()->json(['error' => false, 'message' => 'Imagen del producto eliminada con éxito'], 200);
     }
 }

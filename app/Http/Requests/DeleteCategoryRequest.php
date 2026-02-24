@@ -25,8 +25,8 @@ class DeleteCategoryRequest extends FormRequest
     
             'category_id' => 'required|exists:categories,id',
         ],[
-            'category_id.required' => 'The category ID is required.',
-            'category_id.exists' => 'The category ID must exist in the categories table.',
+            'category_id.required' => 'Se requiere el ID de categoría..',
+            'category_id.exists' => 'El ID de categoría debe existir en la tabla categorías.',
         ]);
         
 

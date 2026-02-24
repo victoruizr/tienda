@@ -41,8 +41,8 @@ class UpdateProductRequest extends FormRequest
                 ['product' => $productId], 
                 ['product' => 'required|integer|exists:products,id'],
                 [
-                    'product.integer' => 'The product identifier must be an integer.',
-                    'product.exists' => 'The product with the provided ID does not exist in the database.',
+                    'product.integer' => 'El identificador del producto debe ser un número entero.',
+                    'product.exists' => 'El producto con el ID proporcionado no existe en la base de datos.',
                 ]
             );
 
@@ -55,19 +55,19 @@ class UpdateProductRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'The product name is required.',
-            'name.string' => 'The name must be a text string.',
-            'name.max' => 'The name cannot exceed 255 characters.',
-            'price.required' => 'The price is required.',
-            'price.numeric' => 'The price must be a number.',
-            'price.gt' => 'The price must be greater than zero.',
-            'stock.required' => 'The stock quantity is required.',
-            'stock.integer' => 'The stock must be an integer.',
-            'stock.min' => 'The stock cannot be negative.',
-            'active.required' => 'The active status is required.',
-            'active.boolean' => 'The active status must be true or false.',
-            'category_id.required' => 'The category ID is required.',
-            'category_id.exists' => 'The specified category does not exist.',
+            'name.required' => 'El nombre del producto es obligatorio.',
+            'name.string' => 'El nombre del producto debe ser una cadena de texto.',
+            'name.max' => 'El nombre del producto no debe exceder los 255 caracteres.',
+            'price.required' => 'El precio del producto es obligatorio.',
+            'price.numeric' => 'El precio del producto debe ser un valor numérico.',
+            'price.gt' => 'El precio del producto debe ser mayor que cero.',
+            'stock.required' => 'La cantidad en stock del producto es obligatoria.',
+            'stock.integer' => 'La cantidad en stock del producto debe ser un número entero.',
+            'stock.min' => 'La cantidad en stock del producto no puede ser negativa.',
+            'active.required' => 'El estado activo del producto es obligatorio.',
+            'active.boolean' => 'El estado activo del producto debe ser verdadero o falso.',
+            'category_id.required' => 'El ID de categoría es obligatorio.',
+            'category_id.exists' => 'La categoría especificada no existe.',
         ];
     }
 

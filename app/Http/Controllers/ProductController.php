@@ -18,8 +18,8 @@ class ProductController extends Controller
 
         $query = Product::with(['category', 'images']);
 
-        if ($request->filled('category_id')) {
-            $query->where('category_id', $request->category_id);
+        if ($request->has('category_id')) {
+            $query->where('category_id', $request->integer('category_id'));
         }
 
         if ($request->has('active')) {
@@ -39,9 +39,9 @@ class ProductController extends Controller
         $product = Product::create($request->validated());
 
         if ($product) {
-            return response()->json(['error' => false, 'message' => 'Product created successfully', 'product' => $product], 201);
+            return response()->json(['error' => false, 'message' => 'Producto creado correctamente', 'product' => $product], 201);
         }
-        return response()->json(['error' => true, 'message' => 'Failed to create product'], 500);
+        return response()->json(['error' => true, 'message' => 'No se pudo crear el producto.'], 500);
 
     }
 
@@ -53,9 +53,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($idProduct);
         $product->update($request->validated());
         if ($product) {
-            return response()->json(['error' => false, 'message' => 'Product updated successfully', 'product' => $product], 200);
+            return response()->json(['error' => false, 'message' => 'Producto actualizado correctamente', 'product' => $product], 200);
         }
-        return response()->json(['error' => true, 'message' => 'Failed to update product'], 500);
+        return response()->json(['error' => true, 'message' => 'No se pudo actualizar el producto.'], 500);
     }
 
     /**
@@ -67,9 +67,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($idProduct);
         $product->delete();
         if ($product) {
-            return response()->json(['error' => false, 'message' => 'Product deleted successfully', 'product' => $product], 200);
+            return response()->json(['error' => false, 'message' => 'Producto eliminado con éxito', 'product' => $product], 200);
         }
-        return response()->json(['error' => true, 'message' => 'Failed to delete product'], 500);
+        return response()->json(['error' => true, 'message' => 'No se pudo eliminar el producto.'], 500);
 
         return response()->json(null, 204);
     }

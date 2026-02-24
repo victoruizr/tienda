@@ -33,8 +33,8 @@ class DeleteProductRequest extends FormRequest
                 ['product' => $productId], // Cambiado a 'product' para coincidir con la URL
                 ['product' => 'required|integer|exists:products,id'],
                 [
-                    'product.integer' => 'The product identifier must be an integer.',
-                    'product.exists' => 'The product with the provided ID does not exist in the database.',
+                    'product.integer' => 'El identificador del producto debe ser un número entero..',
+                    'product.exists' => 'El producto con el ID proporcionado no existe en la base de datos.',
                 ]
             );
 

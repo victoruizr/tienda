@@ -39,8 +39,8 @@ class StoreProductImageRequest extends FormRequest
                 ['product' => $productId], // Cambiado a 'product' para coincidir con la URL
                 ['product' => 'required|integer|exists:products,id'],
                 [
-                    'product.integer' => 'The product identifier must be an integer.',
-                    'product.exists' => 'The product with the provided ID does not exist in the database.',
+                    'product.integer' => 'El identificador del producto debe ser un número entero.',
+                    'product.exists' => 'El producto con el ID proporcionado no existe en la base de datos.',
                 ]
             );
 
@@ -54,10 +54,10 @@ class StoreProductImageRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'url.required' => 'The image URL is required.',
-            'url.url' => 'The image URL must be a valid URL.',
-            'url.max' => 'The image URL must not exceed 255 characters.',
-            'url.unique' => 'The image URL has already been taken.',
+            'url.required' => 'La URL de la imagen es obligatoria.',
+            'url.url' => 'La URL de la imagen debe ser una URL válida.',
+            'url.max' => 'La URL de la imagen no debe exceder los 255 caracteres.',
+            'url.unique' => 'La URL de la imagen ya ha sido tomada.',
         ];
     }
 }

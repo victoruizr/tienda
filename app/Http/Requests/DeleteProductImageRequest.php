@@ -26,10 +26,10 @@ class DeleteProductImageRequest extends FormRequest
                 ['product' => $productId, 'imageId' => $imageId],
                 ['product' => 'required|integer|exists:products,id', 'imageId' => 'required|integer|exists:product_images,id'],
                 [
-                    'product.integer' => 'The product identifier must be an integer.',
-                    'product.exists' => 'The product with the provided ID does not exist in the database.',
-                    'imageId.integer' => 'The image ID must be an integer.',
-                    'imageId.exists' => 'The image with the provided ID does not exist in the database.',
+                    'product.integer' => 'El identificador del producto debe ser un número entero..',
+                    'product.exists' => 'El producto con el ID proporcionado no existe en la base de datos.',
+                    'imageId.integer' => 'El identificador de la imagen debe ser un número entero.',
+                    'imageId.exists' => 'La imagen con el ID proporcionado no existe en la base de datos.',
                 ]
             );
 
