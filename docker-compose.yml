@@ -22,6 +22,7 @@ services:
     command: >
       /bin/bash -c "
       composer install &&
+      sleep 10 && # Espera a que la base de datos esté lista
       php artisan migrate --force &&
       apachectl -D FOREGROUND"
 

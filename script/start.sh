@@ -7,9 +7,9 @@ cd /var/www/html
 chown -R www-data:www-data storage bootstrap/cache
 
 # Copy .env.example if .env does not exist.
-# if [ ! -f .env ]; then
-#     ln -s environments/.env.develop.env .env
-# fi
+if [ ! -f .env ]; then
+    ln -s environments/.env.develop.env .env
+fi
 
 # Generate the application key.
 /usr/local/bin/php artisan key:generate
