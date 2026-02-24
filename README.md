@@ -2,7 +2,7 @@
 # Instalacion y despliegue del proyecto
  
 1. Situate en la raiz del proyecto
-2. cp environments/.env.develop ./env
+2. cp environments/.env.develop.env ./.env
 2. Si tienes docker ejecuta:
     ```sh
     docker compose up -d
