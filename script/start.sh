@@ -21,8 +21,5 @@ chown -R www-data:www-data storage bootstrap/cache
 /usr/local/bin/php artisan storage:link
 /usr/local/bin/php artisan install:api
 
-# Run your custom artisan command in the background.
-/usr/local/bin/php artisan app:calipso-events &
-
 # Start the main Apache process in the foreground to keep the container running.
 exec apachectl -D FOREGROUND
